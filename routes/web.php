@@ -17,8 +17,8 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::resource('empleado','EmpleadoController')->middleware('auth');
+Route::resource('empleado','EmpleadoController');
 
 Auth::routes();
 
-Route::get('/home', 'EmpleadoController@index')->name('home');
+Route::get('/home', 'EmpleadoController@index');
