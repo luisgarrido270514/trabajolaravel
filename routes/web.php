@@ -22,3 +22,7 @@ Route::resource('empleado','EmpleadoController');
 Auth::routes();
 
 Route::get('/home', 'EmpleadoController@index');
+
+Route::get('/inicio', function () {
+    return view('inicio');
+});
