@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::resource('empleado','EmpleadoController');
-
+ 
 Auth::routes();
 
 Route::get('/home', 'EmpleadoController@index');
