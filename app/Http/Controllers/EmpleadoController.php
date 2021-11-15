@@ -57,7 +57,7 @@ class EmpleadoController extends Controller
 
         empleado::insert($datosempleado);
 
-        return redirect('empleado')->with('Mensaje','Empleado agregado con éxito');
+        return redirect('inicio')->with('Mensaje','Empleado agregado con éxito');
     }
 
 

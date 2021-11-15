@@ -690,17 +690,39 @@
                     
                     <div class="col-md-8 col-sm-9 wow fadeInLeft">
                         <div class="contact-form clearfix">
-                            <form action="index.html" method="post">
+                            <form action="{{ route('empleado.store') }}" class="form-horizontal" method="POST"
+                    enctype="multipart/form-data">
+
+                    {{ csrf_field() }}
+
+                    @csrf
                                 <div class="input-field">
-                                    <input type="text" class="form-control" name="name" placeholder="Your Name" required="">
+                                    <input type="text" class="form-control {{ $errors->has('Nombre') ? 'is-invalid' :'' }}" name="Nombre" placeholder="Nombre" required=""
+                                    value="{{ isset($empleado->Nombre)?$empleado->Nombre:old('Nombre') }}">
+                                    {!! $errors->first('Nombre', '<div class="invalid-feedback">:message</div>') !!}
                                 </div>
-                                <div class="input-field">
-                                    <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                                </div>
-                                <div class="input-field message">
-                                    <textarea name="message" class="form-control" placeholder="Your Message" required=""></textarea>
-                                </div>
+                                
+                        <input class="form-control {{ $errors->has('Apellido') ? 'is-invalid' : '' }}" type="text"
+                            placeholder="Apellido" name="Apellido" id="" value="{{ isset($empleado->Apellido)?$empleado->Apellido:old('Apellido') }}">
+                        {!! $errors->first('Apellido', '<div class="invalid-feedback">:message</div>') !!}
+
+                        <br>
+                        <input class="form-control {{ $errors->has('Correo') ? 'is-invalid' : '' }}" type="email"
+                            placeholder="Correo" name="Correo" id="" value="{{ isset($empleado->Correo)?$empleado->Correo:old('Correo') }}">
+                        {!! $errors->first('Correo', '<div class="invalid-feedback">:message</div>') !!}
+
+                        <br>
+                        <input class="form-control {{ $errors->has('Telefono') ? 'is-invalid' : '' }}" type="text"
+                            placeholder="Telefono" name="Telefono" id="" value="{{ isset($empleado->Telefono)?$empleado->Telefono:old('Telefono') }}">
+                        {!! $errors->first('Telefono', '<div class="invalid-feedback">:message</div>') !!}
+
+                        <br>
+                        <input class="form-control {{ $errors->has('ciudad') ? 'is-invalid' : '' }}" type="text"
+                            placeholder="Mensaje" name="ciudad" id="" value="{{ isset($empleado->ciudad)?$empleado->ciudad:old('ciudad') }}">
+                        {!! $errors->first('ciudad', '<div class="invalid-feedback">:message</div>') !!}
+                    </div>
                                 <input type="submit" class="btn btn-blue pull-right" value="SEND MESSAGE" id="msg-submit">
+                                
                             </form>
                         </div> <!-- end .contact-form -->
                     </div> <!-- .col-md-8 -->
